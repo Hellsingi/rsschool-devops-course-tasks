@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "eu-west-1"
-}
-
 # Create the S3 bucket
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "rsschooldevops1991" # Ensure this bucket name is globally unique
