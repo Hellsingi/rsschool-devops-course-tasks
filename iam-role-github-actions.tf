@@ -2,20 +2,20 @@ resource "aws_iam_role" "GithubActionsRole" {
   name = "GithubActionsRole"
 
   assume_role_policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
+    Version = "2012-10-17",
+    Statement = [
       {
-        "Effect" : "Allow",
-        "Principal" : {
-          "Federated" : "arn:aws:iam::442042521792:oidc-provider/token.actions.githubusercontent.com"
+        Effect = "Allow",
+        Principal = {
+          Federated = aws_iam_openid_connect_provider.github.arn
         },
-        "Action" : "sts:AssumeRoleWithWebIdentity",
-        "Condition" : {
-          "StringEquals" : {
-            "token.actions.githubusercontent.com:aud" : "sts.amazonaws.com"
+        Action = "sts:AssumeRoleWithWebIdentity",
+        Condition = {
+          StringEquals = {
+            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           },
-          "StringLike" : {
-            "token.actions.githubusercontent.com:sub" : "repo:liubov-js/rsschool-devops-course-tasks:*"
+          StringLike = {
+            "token.actions.githubusercontent.com:sub" = "repo:Hellsingi/rsschool-devops-course-tasks:*"
           }
         }
       }
@@ -23,7 +23,7 @@ resource "aws_iam_role" "GithubActionsRole" {
   })
 
   tags = {
-    tag-key = "GitHub Actions Role"
+    Name = "GitHub Actions Role"
   }
 }
 
