@@ -21,7 +21,7 @@ resource "aws_iam_openid_connect_provider" "github" {
   ]
 
   thumbprint_list = [
-    "74F3A68F16524F15424927704C9506F55A9316BD", # Ensure this thumbprint is correct
+    "6938FD4D98BAB03FAADB97B34396831E3780AEA1", # Ensure this thumbprint is correct
   ]
 
   tags = {
