@@ -24,6 +24,13 @@ resource "aws_iam_role" "GithubActionsRole" {
             "token.actions.githubusercontent.com:sub" : "repo:Hellsingi/rsschool-devops-course-tasks:ref:refs/heads/task_1"
           }
         }
+      },
+      {
+        Effect = "Allow",
+        Principal = {
+          AWS = "arn:aws:iam::588738612192:user/UserTask1"
+        },
+        Action = "sts:AssumeRole"
       }
     ]
   })
