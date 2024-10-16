@@ -37,3 +37,33 @@ variable "enable_nat_gateway" {
   type        = bool
   default     = true
 }
+
+variable "instance_ami" {
+  description = "AMI ID for the EC2 instances"
+  type        = string
+  default     = "ami-0859cfc5a1411c9ba" # Example AMI (Amazon Linux 2 in eu-west-1)
+}
+
+variable "instance_type" {
+  description = "Instance type for the EC2 instances"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "key_pair_name" {
+  description = "Key pair name for SSH access"
+  type        = string
+  default     = "rs-key-pair-ireland" # or your key pair name
+}
+
+variable "allowed_ssh_cidr" {
+  description = "CIDR block allowed to SSH into instances"
+  type        = string
+  default     = "0.0.0.0/0" # Allow SSH from anywhere (use with caution)
+}
+
+variable "allowed_http_cidr" {
+  description = "CIDR block allowed to access HTTP"
+  type        = string
+  default     = "0.0.0.0/0" # Allow HTTP from anywhere
+}
