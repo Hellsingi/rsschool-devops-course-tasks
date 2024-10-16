@@ -26,3 +26,18 @@ resource "aws_instance" "private" {
     Name = "private_instance_${count.index + 1}"
   }
 }
+
+# Bastion Host in Public Subnet
+resource "aws_instance" "bastion" {
+  ami                         = var.instance_ami
+  instance_type               = var.instance_type
+  subnet_id                   = aws_subnet.public[0].id
+  key_name                    = var.key_pair_name
+  associate_public_ip_address = true
+  vpc_security_group_ids      = [aws_security_group.bastion_sg.id]
+
+  tags = {
+    Name = "bastion_host"
+  }
+}
+
