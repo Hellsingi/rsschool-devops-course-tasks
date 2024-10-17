@@ -11,7 +11,6 @@ provider "aws" {
   region = var.region
 }
 
-
 resource "aws_iam_openid_connect_provider" "github" {
   url = "https://token.actions.githubusercontent.com"
 
@@ -20,7 +19,7 @@ resource "aws_iam_openid_connect_provider" "github" {
   ]
 
   thumbprint_list = [
-    "6938FD4D98BAB03FAADB97B34396831E3780AEA1", # Ensure this thumbprint is correct
+    "6938FD4D98BAB03FAADB97B34396831E3780AEA1",
   ]
 
   tags = {
