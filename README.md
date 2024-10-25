@@ -97,3 +97,4 @@ A GitHub Actions workflow is set up to automate the Terraform deployment process
 5. Validate Terraform files
 6. Plan Terraform changes
 7. Apply Terraform changes (on manual approval)
+

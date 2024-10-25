@@ -5,7 +5,7 @@ variable "region" {
 
 variable "bucket_name" {
   description = "The name of the S3 bucket for Terraform states"
-  default     = "rsschooldevops1991"
+  default     = "rsschooldevops1992"
 }
 
 variable "vpc_cidr_block" {
